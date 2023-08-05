@@ -1,14 +1,14 @@
 # ETHAvax
-# Project Title
+# Project: Create and Mint Token
 
-Simple balance management.
+This is a simple smart contract code for minting tokens.
 
 ## Description
 
 This program allows the owner to do the following:
-- Deposit 
-- Withdraw
-- Clear Balance
+- Mint Tokens (Only for contract owner)
+- Burning Tokens (Any User)
+- Transferring Tokens (Any User)
 
 ## Getting Started
 
@@ -19,18 +19,11 @@ This program allows the owner to do the following:
 
 ### Executing program
 
-* How to run the program
-* Step-by-step bullets
+Using Remix
 ```
 code blocks for commands
 ```
 
-## Help
-
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
 
 ## Authors
 
