@@ -1,0 +1,36 @@
+pragma solidity ^0.8.0;
+
+contract MyToken {
+    address public owner;
+    mapping(address => uint256) public balances;
+    mapping(address => mapping(address => uint256)) public allowances;
+    uint256 public totalSupply = 1000000;
+
+    constructor() {
+        owner = msg.sender;
+        balances[msg.sender] = totalSupply;
+    }
+
+    modifier onlyOwner() {
+        require(msg.sender == owner, "Only the contract owner can perform this action");
+        _;
+    }
+
+    function mint(address to, uint256 amount) public onlyOwner {
+        require(amount <= 1000000, "Cannot mint more than the total supply");
+        balances[to] += amount;
+        totalSupply += amount;
+    }
+
+     function transfer(address to, uint256 amount) public {
+        require(amount <= balances[msg.sender], "Insufficient balance");
+        balances[msg.sender] -= amount;
+        balances[to] += amount;
+    }
+
+        function burn(uint256 amount) public {
+        require(amount <= balances[msg.sender], "Insufficient balance");
+        balances[msg.sender] -= amount;
+        totalSupply -= amount;
+    }
+}
